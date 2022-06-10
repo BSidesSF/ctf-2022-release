@@ -1,0 +1,26 @@
+Using tool/docs at https://johnloomis.org/cpe102/asgn/asgn1/riff.html
+
+$ ./chunks hello.webp
+filename: hello.webp
+RIFF  2661398
+  code: WEBP
+  VP8   15342
+  RIFF  2646036
+-----------------
+
+File is a RIFF with two chunks. A webp chunk with a telephone showing
+a DTMF grid and a second RIFF chunk with a WAV file with a DTMF
+recording of "4354467B6469616C5#665#666#725#666C61677D"
+
+Image is directly visible using most image viewers without any
+trouble. They simply ignore the second chunk.
+
+Wave can be extracted with:
+dd if=hello.webp bs=15362 skip=1 of=/tmp/out.wav
+
+When DTML is translated to hex (# -> F) using the grid in the image
+results in 4354467B6469616C5F665F666F725F666C61677D
+
+$ perl -e 'print pack("H*", "4354467B6469616C5F665F666F725F666C61677D"), "\n";'
+CTF{dial_f_for_flag}
+

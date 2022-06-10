@@ -1,0 +1,14 @@
+version: beta1
+name: reallyprettymundane
+author: ron
+flag: 'CTF{build_me_to_your_leader}'
+description: |
+  So y'know how it's a pain to package up RPM files? Well, we built a tool to help! Upload files and create yourself a custom RPM!
+
+  Find a way to get the flag!
+tags:
+  - Web
+  - Pwn
+port: 8371
+protocol: http # accepted: http, https, tcp, udp
+flag_path: "/flag.txt"

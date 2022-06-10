@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pwncap2
+  name: pwncap2
+spec:
+  loadBalancerIP: 35.230.39.240
+  ports:
+  - port: 5555
+    protocol: TCP
+    targetPort: 5555
+  selector:
+    app: pwncap2
+  type: LoadBalancer

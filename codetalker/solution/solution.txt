@@ -1,0 +1,30 @@
+1) File is bz2, extract
+
+2) File is text grid with list of moves from (U)u, (D)own, (R)ight,
+(L)left and base64 text has been encoded in a snaking grid following
+the moves.
+
+3) Find ending b64 == and work backwards to the start. You need to
+start at the end because the beginning is ambigous.
+
+4) Decode un-snaked b64 to get xz file, extract to get random-ish
+looking text blob.
+
+5) Blob has a string at top that looks like the alphabet in an odd
+order. It's the b64 character set where the lower bit has been flipped
+(xor 1).  Flip bit back and un-b64.
+
+6) File is gzip. Extract to get obvious hexdump text scrambled
+slightly. Each line is 2 lines, the first the even characters, the
+second the odd characters. Text "example" -> "eape", "xml" is written
+at top to make this more obvious. Also anyone familiar with canonical
+hexdump will spot the basic scrambling.
+
+7) Decode hexdump. File is lzma. Extract lzma
+
+8) Result is text of Phi and phi (φΦ). Phi -> 1; phi -> 0 to get binary.
+
+9) Decode binary to get flag:
+
+CTF{layers_of_meaning}
+

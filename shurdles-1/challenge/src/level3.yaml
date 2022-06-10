@@ -1,0 +1,30 @@
+---
+name: "Less returning, more jumping"
+
+text: |
+  Can you exit with code 3, but without using a `ret` or `syscall` this time?
+
+  Hint: The address the `ret` wants to go to is whatever is on the top of the stack.
+  You can get that using `pop &lt;reg&gt;` then `jmp &lt;reg&gt;` instead of `ret`!
+
+completion: "Good job! You've finished part 1!"
+flag: "CTF{return_to_me}"
+password: "Level4GoGoGo"
+
+checker: |
+  if result['history'][-1]['rip']['as_instruction'] =~ /ret/i
+    raise "Uh oh! Looks like you used `ret` at the end!"
+  end
+
+  if result['history'][-1]['rip']['as_instruction'] =~ /syscall/i
+    raise "Uh oh! Looks like you used `ret` at the end!"
+  end
+
+  if result['exit_code'] != 3
+    raise "Your code did not return 3: #{ result['exit_code'] }"
+  end
+
+solution: |
+  mov rax, 3
+  pop rbx
+  jmp rbx

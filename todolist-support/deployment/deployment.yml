@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: todolist-support
+    tier: challenge
+  name: todolist-support
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todolist-support
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+      labels:
+        app: todolist-support
+        networkpolicy: allow_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env:
+        - name: REDIS_URL
+          value: redis://:ia8Aemoot7oo@redis-todolist.default.svc.cluster.local:6379/0
+        - name: SSO_KEY_URL
+          value: https://todolist-513d9272.challenges.bsidessf.net/pubkey.pem
+        - name: SSO_URL
+          value: https://todolist-513d9272.challenges.bsidessf.net/api/sso
+        image: gcr.io/bsides-sf-ctf-2022/todolist-support:20220524-234724
+        name: todolist-support
+        ports:
+        - containerPort: 3124
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '1'
+            memory: 1Gi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add: []
+          runAsNonRoot: true
+      - env:
+        - name: DEBUG
+          value: 'true'
+        - name: COOKIES
+          value: authz=YWRtaW5AdG9kb2xpc3QuZGV2OmNvcnJlY3QvaG9yc2UvYmF0dGVyeS9zdGFwbGUv;httpOnly;sameSite=Lax;url=https://todolist-513d9272.challenges.bsidessf.net/
+        - name: PORT
+          value: '3000'
+        image: gcr.io/bsides-sf-ctf-2022/webbot:latest
+        name: webbot
+        resources:
+          limits:
+            cpu: '1'
+            memory: 512Mi
+          requests:
+            cpu: 80m
+            memory: 128Mi
+        securityContext:
+          capabilities:
+            add:
+            - SYS_ADMIN
+      enableServiceLinks: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      volumes: []

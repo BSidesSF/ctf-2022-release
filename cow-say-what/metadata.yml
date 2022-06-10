@@ -1,0 +1,22 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: Cow Say What?
+author: Matir
+flag: 'CTF{dont_have_a_cow_have_a_flag}'
+description: I love silly little utilities like fortune and cowsay.  I wanted
+  to bring cowsay to the web, even with a 90s-style web interface.  Go wild!
+tags:
+  - Web
+  - "101"
+port: 6789
+protocol: http # accepted: http, https, tcp, udp
+flag_path: /home/ctf/flag.txt # Optional; but helpful for players
+notes: Private notes on deployment, setup, etc.

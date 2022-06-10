@@ -1,0 +1,31 @@
+<!doctype 'html'>
+
+<html>
+  <head>
+    <title>RPM Generator</title>
+  </head>
+
+  <link rel="stylesheet" href="app.css">
+
+  <body>
+    <h1>RPM Builder</h1>
+
+    <p>Have you ever thought, "I could sure go for an RPM for these files, but I don't know how to make one!"?</p>
+
+    <p>Well, look no further! Just fill out some info and upload your files, and we'll make you an RPM good enough to impress all your friends!</p>
+
+
+    <form action='/generate' enctype="multipart/form-data" method='POST'>
+      <p>Name <input type="text" name="name" placeholder="Package name" /></p>
+      <p>Summary <input type="text" name="summary" placeholder="Package summary" /></p>
+      <p>Version <input type="text" name="version" placeholder="Package version" /></p>
+      <p>Release <input type="text" name="release" placeholder="Package release" /></p>
+      <p>Description <input type="text" name="description" placeholder="Description" /></p>
+      <p>File(s) <input name="file[]" type="file" multiple /></p>
+      <p><input type="submit" value="Generate me an RPM!" /></p>
+    </form>
+
+  </body>
+
+  <p style="font-size: 0.2em">Not affiliated with Red Hat, RPM, or any related trademark or copyright</p>
+</html>

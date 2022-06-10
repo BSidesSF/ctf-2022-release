@@ -1,0 +1,15 @@
+version: beta1
+name: shurdles1
+author: ron
+flag: 'CTF{return_to_me}'
+description: |
+  Connect using netcat, and follow the instructions to learn shellcode!
+
+  Complete the challenges and you'll get a flag
+tags:
+  - Pwn
+  - '101'
+port: 1337
+protocol: tcp
+security:
+  ptrace: true

@@ -1,0 +1,8 @@
+version: beta1
+name: dual-type-multi-format
+author: symmetric
+flag: 'CTF{dial_f_for_flag}'
+description: A new riff on an old format.
+tags:
+  - Forensics
+

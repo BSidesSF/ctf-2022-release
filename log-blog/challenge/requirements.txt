@@ -1,0 +1,5 @@
+flask
+flask-session
+requests
+flask-csp
+flask-mail

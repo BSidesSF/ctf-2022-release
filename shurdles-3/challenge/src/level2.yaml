@@ -1,0 +1,77 @@
+---
+flag: 'CTF{going_a_little_meta}'
+
+name: "Read a file!"
+
+text: |
+  This is it, the final challenge!
+
+  Your goal this time is to use three syscalls - `sys_open`, `sys_read`, and
+  `sys_write` - to open a file, read its contents into a string, and write its
+  contents to stdout. Be sure to exit cleanly!
+
+  What file? Let's get meta and go with... `/app/level2.yaml` :)
+
+  Some hints:
+  * Call `sys_open` with the filename, just like using `sys_write` last level
+  * `sys_read` can either read into a buffer you create, or directly onto the stack. If you use the stack, be sure you don't crash! Using `sys_exit` will work, even if the stack is corrupted
+  * The `fd` for `sys_read` is returned by `sys_open`, and may not be predictable!
+  * `sys_write` should work just like last level!
+  * A length of about 48 should work
+  * This one has less hand holding than previous - check the syscall values yourself if the output isn't right!
+
+completion: "Great job!"
+password: "Shurdles2FinalLevel"
+
+checker: |
+  if result['exit_code'] != 0
+    raise "Your code did not return 0: #{ result['exit_code'] || result['exit_reason'] }"
+  end
+
+  syscalls = result['history'].select { |h| h['rip']['as_instruction'] == 'syscall' }
+  if syscalls.length < 3
+    raise "You should perform at least 3 syscalls!"
+  end
+
+  if syscalls[0]['rax']['value'] != 2 # sys_open
+    raise "The first syscall should be `sys_open`!"
+  end
+
+  if syscalls[1]['rax']['value'] != 0 # sys_read
+    raise "The second syscall should be `sys_read`!"
+  end
+
+  if syscalls[2]['rax']['value'] != 1 # sys_write
+    raise "The third syscall should be `sys_write`!"
+  end
+
+  if result['stdout'].nil? || !result['stdout'].include?('CTF{going_a_little_meta}')
+    raise "The file was not successfully written to stdout! Check out the output to figure out what's going on!"
+  end
+
+solution: |
+  mov rax, 2 ; open
+  call a
+    db "/app/level2.yaml",0
+  a:
+  pop rdi
+  mov rsi, 0
+  mov rdx, 0
+  syscall
+  mov rdi, rax
+
+  mov rax, 0 ; read
+  ; mov rdi, (fd)
+  mov rsi, rsp
+  mov rdx, 48
+  syscall
+
+  mov rax, 1 ; write
+  mov rdi, 1
+  ; don't change rsi
+  mov rdx, 48
+  syscall
+
+  mov rax, 60
+  mov rdi, 0
+  syscall

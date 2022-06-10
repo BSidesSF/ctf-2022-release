@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  webbot:
+    image: gcr.io/bsides-sf-ctf-2022/webbot:latest
+    ports:
+      - "3000:3000"
+    environment:
+      COOKIES: 'admin=bf2b084a16d854065952ee3edba3e5e22391e0088cea348783b5f4f5208c35ec;URL=https://log-blog-15ba06e9.challenges.bsidessf.net/;httpOnly'
+      PORT: '3000'
+    cap_add:
+      - SYS_ADMIN
+  logblog:
+    build: ./challenge
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: 1

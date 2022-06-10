@@ -1,0 +1,86 @@
+// gRPC For RPCordle
+
+syntax = "proto3";
+
+package rpcordle;
+
+service RPCordleServer {
+  rpc StartGame(StartGameRequest) returns (StartGameResponse) {}
+  rpc SetMetadata(SetMetadataRequest) returns (SetMetadataResponse) {}
+  rpc SubmitGuess(GuessRequest) returns (GuessResponse) {}
+  rpc EndGame(EndGameRequest) returns (EndGameResponse) {}
+  rpc GetWordlist(GetWordlistRequest) returns (GetWordlistResponse) {}
+  rpc GetGameRecord(GameRecordRequest) returns (GameRecordResponse) {}
+  rpc EditGameRecord(GameRecordEditRequest) returns (GameRecordResponse) {}
+}
+
+// Start a new game
+message StartGameRequest {}
+
+message StartGameResponse {
+  uint64 serverid = 1;
+  uint32 gameid = 2;
+}
+
+// Update game metadata
+message SetMetadataRequest {
+  uint32 gameid = 1;
+  string client_ip = 2;
+  uint32 game_streak = 3;
+}
+
+message SetMetadataResponse { }
+
+// Submit a guess
+message GuessRequest {
+  uint32 gameid = 1;
+  string guess = 2;
+}
+
+enum GuessPosition {
+  NOT_IN_WORD = 0;  // Guess at this position is not in word at all
+  WRONG_POSITION = 1; // Guess at this position is in the wrong position
+  CORRECT = 2; // Guess at this position is correct
+}
+
+message GuessResponse {
+  repeated GuessPosition positions = 2;
+  bool win = 3;
+  uint32 game_record_id = 4;
+}
+
+// End a game
+message EndGameRequest {
+  uint32 gameid = 1;
+}
+
+message EndGameResponse {
+  uint32 game_record_id = 1;
+  bool win = 2;
+}
+
+// Get the candidate wordlist
+message GetWordlistRequest {}
+
+message GetWordlistResponse {
+  repeated string word = 2;
+}
+
+// Look at and edit game records
+message GameRecordRequest {
+  uint32 game_record_id = 1;
+}
+
+message GameRecordResponse {
+  uint32 game_record_id = 1;
+  bytes name = 2;
+  string word = 3;
+  uint32 guesses = 4;
+  uint32 finished = 5;
+}
+
+// Edit display name
+message GameRecordEditRequest {
+  uint32 game_record_id = 1;
+  bytes name = 2;
+}

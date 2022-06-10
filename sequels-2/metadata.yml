@@ -1,0 +1,25 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: "Sequels: The Server Strikes Back"
+author: Matir
+flag: 'CTF{its_encodings_all_the_way_down}'
+description: >
+  After the developer of Sequels: A New Bug promised they wouldn't make the
+  same mistake again, we asked them to build us a tool to inspect the EXIF
+  data contained in some image types.  We hope you'll find it useful.
+tags:
+  - Web
+port: 3000
+protocol: http # accepted: http, https, tcp, udp
+notes: Private notes on deployment, setup, etc.
+after: sequels-1
+environ:
+  DSN: "sequels2:ohRies1jeequ@tcp(mariadb-sequels-svc.default.svc.cluster.local:3306)/sequels2"

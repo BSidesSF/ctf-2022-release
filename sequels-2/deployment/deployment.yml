@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sequels-2
+    tier: challenge
+  name: sequels-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sequels-2
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+      labels:
+        app: sequels-2
+        networkpolicy: allow_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env:
+        - name: DSN
+          value: sequels2:ohRies1jeequ@tcp(mariadb-sequels-svc.default.svc.cluster.local:3306)/sequels2
+        image: gcr.io/bsides-sf-ctf-2022/sequels-2:20220531-121606-mod
+        name: sequels-2
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '1'
+            memory: 1Gi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add: []
+          runAsNonRoot: true
+      enableServiceLinks: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      volumes: []

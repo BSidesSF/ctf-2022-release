@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}TODOs{% endblock %}
+{% block head %}
+{% if g.user and g.user.is_admin %}
+<script src='/static/admin.js'></script>
+<script>
+    window.user_email = "{{g.user.email}}";
+</script>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class='columns'>
+    <div class='column is-half is-offset-one-quarter'>
+        <table id='todos' class='table is-striped'>
+            <thead>
+                <tr><td></td><td>TODO</td></tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <form>
+            <div class="field">
+                <label class="label">TODO Entry</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="TODO" id="new-todo"></textarea>
+                </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button type="button" class="button is-link" id="new-todo-submit">Submit</button>
+                </div>
+                <div class="control">
+                    <button type="button" class="button is-link is-light" id="new-todo-cancel">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Not For Taking</title>
+
+    <style>
+      img {
+        width: 400px;
+        height: 400px;
+        object-fit: none;
+        object-position: 100% 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Bird</h1>
+
+    <p>This is my bird. Her name is Clang. She's a Green Cheek Conure (GCC). She loves eating and being loud. Her hobbies include shrieking and being hidden in CTFs. She's proud to be in an image that contains a hidden message.</p>
+
+    <p>If people try to steal it, we know it's safe - we've turned off right-clicking so you can't download the image!</p>
+
+    <p><img src="clang.png" /></p>
+
+    <script>
+      document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+        alert("Sorry, for security purposes right-clicking is disabled!");
+      });
+    </script>
+  </body>
+</html>
+

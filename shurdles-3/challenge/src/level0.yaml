@@ -1,0 +1,36 @@
+---
+name: "Reviewing syscalls"
+
+text: |
+  Welcome back! We're going to continue from `shurdles2` to do more complicated stuff!
+
+  First off, let's practice doing a syscall. Can you call `sys_exit` with an exit code of 123?
+  This is pretty much the same as what we did in `shurdles1`
+
+  [Syscall table for reference](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+
+completion: "Great job! Let's see what else calling can do"
+flag: null
+password: ""
+
+checker: |
+  if result['exit_code'].nil?
+    raise "Your code did not exit cleanly: #{ result['exit_reason'] }"
+  end
+
+  if result['history'][-1]['rip']['as_instruction'] != 'syscall'
+    raise "The final instruction should be `syscall`!"
+  end
+
+  if result['history'][-1]['rax']['value'] != 60
+    raise "The final `syscall` should be `sys_exit`!"
+  end
+
+  if result['history'][-1]['rdi']['value'] != 123 && result['history'][-1]['rdi']['value'] != 0x123
+    raise "The `error_code` parameter to the `sys_exit` syscall should be 123!"
+  end
+
+solution: |
+  mov rax, 60
+  mov rdi, 123
+  syscall

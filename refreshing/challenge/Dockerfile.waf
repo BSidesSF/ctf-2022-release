@@ -1,0 +1,4 @@
+FROM httpd:latest
+
+COPY ./waf/httpd.conf /usr/local/apache2/conf/httpd.conf
+RUN sed -i 's/app:80/127.0.0.1:8123/' /usr/local/apache2/conf/httpd.conf

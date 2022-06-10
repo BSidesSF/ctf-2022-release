@@ -1,0 +1,28 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: TODO List
+author: Matir
+flag: 'CTF{please_keep_your_exploits_chained}'
+description: |
+  I've always struggled to keep track of all the TODOs left in my software,
+  so I decided to build a TODO list manager for me.
+tags:
+  - Web
+  - "1337"
+# This *must* be the port on which your service is listening inside the
+# container.  It *must* also return 200 for a GET / HTTP/1.1.
+port: 3123
+protocol: http # accepted: http, https, tcp, udp
+flag_path: /path/to/ctf/flag.txt # Optional; but helpful for players
+notes: Private notes on deployment, setup, etc.
+environ:
+  SUPPORT_URL: https://todolist-support-ebc7039e.challenges.bsidessf.net/
+  REDIS_URL: redis://:ia8Aemoot7oo@redis-todolist.default.svc.cluster.local:6379/0

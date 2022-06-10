@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="columns">
+    <div class="column is-one-third is-offset-one-third"><!--TODO Mobile Sizing-->
+        <form method='POST' action='/register'>
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left">
+                <input class="input" type="email" placeholder="email@domain"
+                    name="email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Password</label>
+            <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password" name="password">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+            </p>
+        </div>
+        <div class="field">
+            <label class="label">Confirm Password</label>
+            <p class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password (Repeat)"
+                                                 name="password2">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+            </p>
+        </div>
+        <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+                <input type="submit" class="button is-primary" value="Register">
+            </p>
+            <p class="control">
+            <a class="button is-light">
+                Cancel
+            </a>
+            </p>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

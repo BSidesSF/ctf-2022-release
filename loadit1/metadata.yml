@@ -1,0 +1,27 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: loadit1
+author: ron
+flag: 'CTF{load_it_like_you_got_it}'
+description: |
+  Can you use `LD_PRELOAD` to get the flag? We included a README file in skeleton.zip with lots of instructions!
+
+  To execute:
+
+  ```
+  chmod +x ./loadit1
+  ./loadit1
+  ```
+
+  (We compiled on Debian 11)
+tags:
+  - RE
+  - "101"

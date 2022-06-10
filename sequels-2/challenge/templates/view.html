@@ -1,0 +1,14 @@
+{{define "title"}}View EXIF Data{{end}}
+{{define "content"}}
+<img src="{{.ImageData}}">
+<table class="table">
+  <tr><th>Upload IP</th><th>Filename</th><th>Uploaded</th></tr>
+  <tr><td>{{.RemoteAddr}}</td><td>{{.Filename}}</td><td>{{.UploadTS}}</td></tr>
+</table>
+<table class="table">
+  <tr><th>EXIF Field</th><th>EXIF Data</th></tr>
+  {{range .EXIFs}}
+    <tr><td>{{.Name}}</td><td>{{.Value}}</td>
+  {{end}}
+</table>
+{{end}}

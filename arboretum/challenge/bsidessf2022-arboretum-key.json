@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bsidessf2022-arboretum-backend",
+  "private_key_id": "2d60d1cf12af716f606d99fcc83555939b89a3ba",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC+F3QOZQhCA4XS\nsTMbwi+lvQLoqYhLUVHQ7elFa5+wqqRTR3hSbQL2eb1HA2Bqqo0CROwOSFOKJzDw\n3UI/OcB2rfNmykzPvq0qQiDtfdDlRKCPeNL79hZPg8q8uL+jplWp3seZaywVJpCf\ngyAoDShLnQR73z1nQhuLOlE5gUWQW9Qpsy0MlO6tnJtFeSuNcRhKLIIYsQqWsa3k\nswqTHXqj535maaak8I2oX4Pn4AWInMOMW+P4ZngO4Ryo18HOfTIQvkqKjYi+wyN+\nOeMWQFmTNuknBbsqrWTE5hK9DyKnfqP+zoKqK2iRQVOUtu+vHWvBOIwz9xsnYRdq\nEauTyzu/AgMBAAECggEAAeDKcT/3SmutfUzp49rRzLHm3vSZ16Cojcdj+B8dl0nA\nUOBSZIIWNugyAgsa/0LLHNwgdu2pAaLsfVy6RFSmPaXvUzMpeh34qQO5Po9xKmq4\nqWI4t2uRgdyb+qxanFvO2dxNHYttBpJ4eFL71Nl4bfLRsgWdHjGNgx0i404PKWNy\nfrvTtrcx3leglq0UKqGyVS+Z2nuIePwcuABSdgIokCIQ+bIf70cACThT8h0AU24O\nZArjyInl1KbktDno5+PwC7qejz8J6URPhCS/dYPUzpE4hyaE0i2ZLk6b5RkwgvcZ\nDaFRdOG7wZ8cQumLq18B74bEJPXm2Qhtu0rg0gB32QKBgQDyjacAX4K+mfTjm1fP\nQmyyNEilXcKacLaJf2HDw19S68beapwqkSJ+TppJ2DDokPi/YY4PAwbdb6YeN1GT\ngeK24pPJkMSxB6bZ+IzdLHf01HKNDuFJ54ccm5tFqu0+OgL2S91TF0Tv3G9vlR44\n4dLYmEdHoI4KoTG9G61zStareQKBgQDIoUH3FkZXy+XRPlOiYzBMbt+x/1/tE8K4\nz6et3x1pCYWZKKMg++k3ZLJhnwaDZQGXZvyN0h076XiHyUAmE1ZOPYUgXJZfAfHe\n/St/+kX+MAdWNvZkuvpBFQOOICJxHfibbAZNvYZXwCP5vBCs81/NqSi/1zKUZ6Hn\nj/qcwW2a9wKBgQCDBBDZGr48xlyJNTfRNEgSWjuDV4nuckOnMa9VVwr+d20MZvnD\n5HGFWF/u02BXvzcd6Uwav7/NjKlmWOsvilE0CF9b2V7lYQS3aJJuRb7l+HuHxinb\nCbzprwPINfPAUQWYlJIQd9k81w06cInKn/CMHnUiM4+GHlwHkhO22w3pwQKBgA1q\n831x6OxwP4N59p/yoEVMWPuPh7vUSX6QrLctJ8thjqTKmfZXwqYovuFWgFoDRFL6\n2UMm3Tunhp8WL4scWfZLmP6sEoZyG9n89o7NjybL0YHLlTjxZFE79YvozETia0EB\nvX4vga+WsxE9qaPXdv3LJWWHH+Pa9nIFKA6ZxRnLAoGAVQum8fxyg+qZ0OePJIfS\n0lioV1yBb3gvoyBj7i0G2D44iGQSdLtI/mLlWKRcOaCpnovUGkJqwoLU0VYl/wwm\n1m6y9DIr6XOt9EnpX3a1LkX5M6dVzKBnpR+BvWhzlTeZrCaco3lxZhE0QnubeWP8\ni41ZFgIsFY0sygmupa7GkYk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "arboretum-gcs-fetcher@bsidessf2022-arboretum-backend.iam.gserviceaccount.com",
+  "client_id": "100548808382254643338",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/arboretum-gcs-fetcher%40bsidessf2022-arboretum-backend.iam.gserviceaccount.com"
+}

@@ -1,0 +1,13 @@
+Lock is the master dial lock 'm1573l.jpg'. This is the only combo lock
+in the photos.
+
+The recording is clicks of each letter as the lock is turned followed
+by a sound when it is stopped on the right letter of the flag and then
+turned around.
+
+Visual inspection of the waveform of the recording is enough to
+identify the distances of all the letters from each other. The initial
+starting position (which letter the dial started on) must be
+brute-forced and the starting turning direction must be brute forced,
+making for 40 possible flags. Only one will read out English words.
+

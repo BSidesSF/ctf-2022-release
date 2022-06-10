@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: todolist
+    tier: challenge
+  name: todolist
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todolist
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+      labels:
+        app: todolist
+        networkpolicy: allow_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env:
+        - name: SUPPORT_URL
+          value: https://todolist-support-ebc7039e.challenges.bsidessf.net/
+        - name: REDIS_URL
+          value: redis://:ia8Aemoot7oo@redis-todolist.default.svc.cluster.local:6379/0
+        image: gcr.io/bsides-sf-ctf-2022/todolist:20220604-201416
+        name: todolist
+        ports:
+        - containerPort: 3123
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '1'
+            memory: 1Gi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add: []
+          runAsNonRoot: true
+      enableServiceLinks: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      volumes: []

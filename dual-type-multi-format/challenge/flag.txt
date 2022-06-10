@@ -1,0 +1,1 @@
+CTF{dial_f_for_flag}

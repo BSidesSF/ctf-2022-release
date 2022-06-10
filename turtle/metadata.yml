@@ -1,0 +1,12 @@
+version: beta1
+name: turtle
+author: ron
+flag: 'CTF{lets_do_the_time_warp_again}'
+description: |
+  Win the Turtle game every day for a month, and we'll issue you a flag! See you in July!
+
+  If you need the flag sooner.. well, you might need to be creative!
+tags:
+  - Web
+port: 7999
+protocol: http # accepted: http, https, tcp, udp

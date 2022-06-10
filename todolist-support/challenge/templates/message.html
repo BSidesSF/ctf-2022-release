@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Send Message {% endblock %}
+{% block content %}
+<form method='POST' action='/message' id='new-message'>
+    <input type='hidden' name='difficulty' value='{{difficulty|default(4, true)}}'>
+    <div class='columns'>
+        <div class='column is-half is-offset-one-quarter'>
+            <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Message"
+                                     name="message"></textarea>
+                </div>
+            </div>
+            <p>Please note your IP and User-Agent will be logged for anti-fraud
+                purposes.</p>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button type="button" id="new-message-submit" class="button is-link">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

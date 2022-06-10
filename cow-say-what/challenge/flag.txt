@@ -1,0 +1,1 @@
+CTF{dont_have_a_cow_have_a_flag}

@@ -1,0 +1,33 @@
+.page-header h1 {
+    padding: 2rem 0;
+    font-size: 3rem;
+}
+
+.card-img {
+    height: 200px;
+}
+
+.blog-footer{
+    padding: 1.5rem 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.footer-text{
+    margin: 10px;
+}
+.card-body{
+    height: 220px;
+    padding: 10px;
+}
+
+.form-group{
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+.form-group label{
+    margin-bottom: 0.5rem;
+}
+.banner{
+    color: white;
+}

@@ -1,0 +1,34 @@
+.btn{
+  margin-bottom:  0.25rem;
+}
+
+.home-body{
+  margin: 50px;
+}
+
+.box{
+  width: 50%;
+  margin: 50px;
+}
+
+.progress-bar{
+  width: 100%;
+  height: 2rem;
+}
+
+.progress-container{
+  width: 100%;
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+
+}
+
+.progress-container span {
+    position: absolute;
+    display: inline-block;
+    color: #fff;
+    text-align: right;
+    height: 2rem;
+    padding: 5px;
+}

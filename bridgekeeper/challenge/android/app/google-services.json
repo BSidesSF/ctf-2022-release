@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "817844309180",
+    "project_id": "bsidessf2022-bridgekeeper",
+    "storage_bucket": "bsidessf2022-bridgekeeper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817844309180:android:5d06bc6469682b236294b9",
+        "android_client_info": {
+          "package_name": "com.bsidessf.bridgekeeper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817844309180-8lcvjh6bjau7aljlav6pa9ohm2fam5t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZhEOyy9V12KUPwgQ0PrF570dXmdhj4pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817844309180-8lcvjh6bjau7aljlav6pa9ohm2fam5t2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

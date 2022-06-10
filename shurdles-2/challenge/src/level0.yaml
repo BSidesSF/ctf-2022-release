@@ -1,0 +1,20 @@
+---
+name: Into the void
+
+text: |
+  Let's start easy: can you crash at the address 0x12345678?
+
+  Hint: The easiest way is to `mov` the address into a register then `jmp` to it
+
+completion: "You crashed, but it's a good thing!"
+flag: null
+password: ""
+
+checker: |
+  if result['history'][-1]['rip']['value'] != 0x12345678
+    raise "Sorry, you did not crash at 0x12345678!"
+  end
+
+solution: |
+  mov rax, 0x12345678
+  jmp rax

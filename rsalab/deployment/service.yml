@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rsalab
+  name: rsalab
+spec:
+  loadBalancerIP: 34.127.111.114
+  ports:
+  - port: 6537
+    protocol: TCP
+    targetPort: 6537
+  selector:
+    app: rsalab
+  type: LoadBalancer

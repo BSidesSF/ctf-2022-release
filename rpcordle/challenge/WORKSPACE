@@ -1,0 +1,28 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# GRPC Dependencies
+http_archive(
+    name = "com_github_grpc_grpc",
+    urls = [
+        "https://github.com/grpc/grpc/archive/b39ffcc425ea990a537f98ec6fe6a1dcb90470d7.tar.gz",
+    ],
+    strip_prefix = "grpc-b39ffcc425ea990a537f98ec6fe6a1dcb90470d7",
+    sha256 = "32280510b485ff123fb1ed89eb25038d8e07c8a2ee892ee3742d3ed403d50011",
+)
+load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
+grpc_deps()
+load("@com_github_grpc_grpc//bazel:grpc_extra_deps.bzl", "grpc_extra_deps")
+grpc_extra_deps()
+
+# For dynamic commands
+http_archive(
+    name = "hedron_compile_commands",
+
+    # Replace the commit hash in both places (below) with the latest, rather than using the stale one here. 
+    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
+    url = "https://github.com/hedronvision/bazel-compile-commands-extractor/archive/488dda3272ac8461920ea6c9081c594a5d3c8606.tar.gz",
+    strip_prefix = "bazel-compile-commands-extractor-488dda3272ac8461920ea6c9081c594a5d3c8606",
+    sha256 = "3f0852c16d26d3eb0c61f8dd9ff6e3a528f3756d98283dd6546455650cb54814",
+)
+load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
+hedron_compile_commands_setup()

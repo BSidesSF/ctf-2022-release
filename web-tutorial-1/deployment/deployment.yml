@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-tutorial-1
+    tier: challenge
+  name: web-tutorial-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-tutorial-1
+  template:
+    metadata:
+      annotations:
+        apparmor.security.beta.kubernetes.io/defaultProfileName: runtime/default
+      labels:
+        app: web-tutorial-1
+        networkpolicy: allow_egress
+        tier: challenge
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - env: []
+        image: gcr.io/bsides-sf-ctf-2022/web-tutorial-1:20220528-221858
+        name: web-tutorial-1
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '1'
+            memory: 1Gi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add: []
+          runAsNonRoot: true
+      - env:
+        - name: DEBUG
+          value: 'true'
+        - name: COOKIES
+          value: admin=14648f6579bd07059177940f8a5bddba8fe9e9cdda09500cd73402a580ad8b2a;URL=https://web-tutorial-1-a1ef0161.challenges.bsidessf.net/;httpOnly
+        - name: PORT
+          value: '3000'
+        image: gcr.io/bsides-sf-ctf-2022/webbot:latest
+        name: webbot
+        resources:
+          limits:
+            cpu: '1'
+            memory: 512Mi
+          requests:
+            cpu: 80m
+            memory: 128Mi
+        securityContext:
+          capabilities:
+            add:
+            - SYS_ADMIN
+      enableServiceLinks: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      volumes: []

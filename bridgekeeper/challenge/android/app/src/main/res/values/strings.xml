@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Bridgekeeper</string>
+    <string name="correct">Correct!</string>
+    <string name="incorrect">Incorrect, try again!</string>
+    <string name="button">Submit</string>
+    <string name="answer">Answer (single word)</string>
+    <string name="flag">Get Flag!</string>
+    <!-- Strings used for questions -->
+    <string name="question1">What has to be broken before you can use it?</string>
+    <string name="question2">The more of this there is, the less you see. What is it?</string>
+    <string name="question3">What can you catch, but not throw?</string>
+    <string name="placeholder">This will be released next week! Once you solve all three riddles, you can get the flag!</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="third_fragment_label">Second Fragment</string>
+    <!-- Strings used for login/registration -->
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="action_register">Register</string>
+    <string name="prompt_password2">Confirm Password</string>
+    <!-- Strings used for preferences -->
+    <string name="preference_file_key">com.bsidessf.bridgekeeper</string>
+    <string name="first_level">Level_1</string>
+    <string name="second_level">Level_2</string>
+    <string name="third_level">Level_3</string>
+</resources>

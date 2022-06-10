@@ -1,0 +1,26 @@
+---
+name: "Returning"
+
+text: |
+  Okay, you successfully ran some code! Did you notice how the output shows
+  each instruction as it executed, with the registers before and after? Kinda
+  cool, eh?
+
+  Now let's do something new: instead of returning 0, can you return 1? That means
+  setting the `rax` register to 1 (using the `mov` instruction) then using
+  `ret` to return.
+
+  By convention, `rax` is the return value from functions and syscalls!
+
+completion: "You returned something!"
+flag: null
+password: "BigLevel2Password"
+
+checker: |
+  if result['exit_code'] != 1
+    raise "Your code did not return 1: #{ result['exit_code'] }"
+  end
+
+solution: |
+  mov rax, 1
+  ret

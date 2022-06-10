@@ -1,0 +1,4 @@
+flask
+requests
+firebase-admin
+pycrypto

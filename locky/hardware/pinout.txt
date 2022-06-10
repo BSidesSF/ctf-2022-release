@@ -1,0 +1,17 @@
+- Power +5/GND to Rails
+
+Printer:
+ +5V
+ Uses USB-TTL adapter for comms
+
+UART:
+  TXD, RXD, GND
+
+
+Reset:
+- I/O 25, GND
+
+LED:
+- I/O 4, I/0 17, GND (resistors inline)
+
+Connectors on printer are likely molex picoblade

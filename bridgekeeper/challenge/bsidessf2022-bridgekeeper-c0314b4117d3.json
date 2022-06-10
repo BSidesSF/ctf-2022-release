@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bsidessf2022-bridgekeeper",
+  "private_key_id": "c0314b4117d3c1a14e3650fe85d4722aed235e17",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDDk5mZES6Z+hFB\nsPe/XEHaoXmRXvyMlTjFiryUwmBSm0Cy3i90MklqnHomtsiv4jzNltP0HFoW7axN\nGuEeXFeudzOwWFT97xRn0jiwttdOf7ecYuecS+/f3xnQqMNjZqE01x4ETGW+8RNy\npw/X8RvhioHeLPXP/smtLYm8bMtwKUUtCN/1p3Yk+fvYMLtGaoBpdbHno3bgHJvC\nHRYEZuFPNHwudkAz9/r8bYG/1zgzn+rqCR5waGqec742MtI6d/fAIUGuo1piZ7AJ\nRsS2E7xgexOXBka3ipnSGSwU39cfedyAL4M5Oe1Y0e8++U+B6uFz+RPB89iV1oId\naVZjUaurAgMBAAECggEAPSdvjWXKgRopADYCWeNSsjbwqOyfIqRcYqSdkBRxgxMJ\nuYRxKS+6Nixko6te+GRRJ+YEM54T63x49okzoEc2oZajYn5UYSy7YDVjRZp+m4yj\nELL6gixaftGnpE/I/NFwEfI78BMlc321W5Hyic7aLX2eWycK2/VrAYwuN+169YBd\nAIhc/8UY6aO0S6sPoxLrS3EG2vKRhWwlvd2R7Zco8a9zOIX/Ebtv292yP4BGAZ/f\nmijo8kTW0MN82Td5JareK/0D6qF8EZb40vzlsloN8x1KD0BUGRGfS6d4HgxXqKHg\nguqiyAvZloCCuhKy1taZfNum3uqpGcmRN8uEBpATNQKBgQD++YakjeP+JrOQcWVL\ntyVQ1JiICUsORobOMU+t5uQF6/JuCKA7W8Gm1wjX4aKUIRid5BDnzOCR5EFZHA1i\nu3Ix2uyu/VX3nhRmKrgszDSbzcRSUUwLD1de7AF2Wox03YUDucWHT/badFG1MCmb\ns+8T0W2GO8pxyRoB46/DEFVf3QKBgQDEXO3Kf2ER+9s5KKc0PoGgKIUQSNM3HIwA\nLA3AUmpPHN797UFdYAxI0v4phNQjIJpJVNcNFKbbnJ4L7Dn7HyfnegS436tB3G3K\nzb1QBehXxL/FtOeepdx9r5KU3DSeZwojY2qUyMrtPHVeOOSQ01TDfd2jKo+dLGg2\n+mke3ofFJwKBgQDOt2SW0sauTZg1GgpC+YgSYVoMqGQmfb1bPBVaayAhQOq6lNm7\nZie5aQstYyxZJf/8OmQOWkcTYNguM5USn9/0VYagVJm2+H2XWzkYcLKSQp/REUIy\nkUyHk5WX68+GC/aET7+6dXUwJS/9Ur/ZEWdaTOeb9auq1pz0PTFJV1uwLQKBgB4z\nrN9YeDWr5ywDdLQ0aPuZP94hVVtEqMPeAr9x7af9aM7ljwgtnbYVvcHlDDva5+Af\njHQWmRNuI2DyFHjrcdfIjLFitZSLstdejZ+hSPs258gg6v8bw64RMxpyRCWY85Y9\n1EbOG2ghxGuZlI4x8veehFh0U2J5Ug4itchpsbhBAoGBAObk5qPlQrEJ3uizTFDo\nbV4cKg45TK3BfPNtrlXlI55Avhu8xm9/EGVB3hAjSADlKdKg6t7KYyy5piVmOWfT\nfCUwwfxfZnMxoWlOS0zqvU2cljrOv0aiWdW307ewENGib57kArTEQoboSZ42ON4r\nfJNR11c0xnS0bPx3n2NQQCgQ\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-p73gq@bsidessf2022-bridgekeeper.iam.gserviceaccount.com",
+  "client_id": "106081646296024260438",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-p73gq%40bsidessf2022-bridgekeeper.iam.gserviceaccount.com"
+}

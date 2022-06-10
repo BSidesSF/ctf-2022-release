@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: refreshing
+  name: refreshing
+spec:
+  loadBalancerIP: 34.145.119.59
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: refreshing
+  type: LoadBalancer
