@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  width: 800px;
+  margin: auto;
+}
+
+.security {
+  background-color: #800000;
+  font-size: 4em;
+  padding-top: 100px;
+}
+
+.small {
+  font-size: 0.3em;
+}
+
+.thumbnail {
+  margin: auto;
+}
+
+.cell {
+  height: 200px;
+  width: 150px;
+  float: left;
+}

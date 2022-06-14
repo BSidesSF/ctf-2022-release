@@ -1,0 +1,43 @@
+---
+name: Using this platform
+
+text: |
+  Heya,
+
+  Welcome to Shellcode Hurdles ("shellc-urdles"?)!
+
+  This platform will let you write and test *shellcode*, then complete some
+  random challenges!
+
+  First off, let's learn how to write code. :)
+
+  You have two choices on how to send code for each level:
+
+  Either you can just write (or probably paste) your x64 code below, followed by a period alone on a line; something like:
+
+  ```asm
+    xor rax, rax
+    ret
+    .
+  ```
+
+  Or, you can paste a string of hex here, followed by a newline; eg:
+
+  ```
+    31c0c3
+  ```
+
+  For this level, can you just run the code above?
+
+completion: "Well done, now for a real challenge!"
+flag: null
+password: ""
+
+checker: |
+  if result['exit_code'] != 0
+    raise "Your code did not return 0: #{ result['exit_code'] || result['exit_reason'] }"
+  end
+
+solution: |
+  xor rax, rax
+  ret

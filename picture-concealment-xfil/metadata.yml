@@ -1,0 +1,8 @@
+version: beta1
+name: picture-concealment-xfil
+author: symmetric
+flag: 'CTF{zenos_run_length_encoding}'
+description: We've filled in the blanks with a flag, can you find it?
+tags:
+  - Forensics
+

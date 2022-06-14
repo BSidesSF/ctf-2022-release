@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: shurdles-3
+  name: shurdles-3
+spec:
+  loadBalancerIP: 34.82.63.127
+  ports:
+  - port: 1337
+    protocol: TCP
+    targetPort: 1337
+  selector:
+    app: shurdles-3
+  type: LoadBalancer

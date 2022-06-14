@@ -1,0 +1,14 @@
+{{define "title"}}QRCode Cleaner{{end}}
+{{define "content"}}
+{{if .Error}}
+<p><b>{{.Error}}</b></p>
+{{end}}
+<form method='POST' action='/' enctype='multipart/form-data'>
+  Upload QRCode:
+  <input type='file' name='fileupload'>
+  <input type='submit' value='Upload'>
+</form>
+<p>
+  This service will cleanup QR code images for you.
+</p>
+{{end}}

@@ -1,0 +1,26 @@
+---
+name: Stacking the deck
+
+text: |
+  Instead of jumping, can you `ret` to 0x12345678? That is, your last instruction
+  should be `ret`, and the shellcode should crash at 0x12345678!
+
+  Hint: We learned in the last challenge that `ret` jumps to whatever is on top
+  of the stack!
+
+completion: "Great work, you've learned how return works!"
+flag: null
+password: "GreetingsFrom12345678"
+
+checker: |
+  if result['history'][-1]['rip']['value'] != 0x12345678
+    raise "Sorry, you did not crash at 0x12345678!"
+  end
+
+  if result['history'][-2] && result['history'][-2]['rip']['as_instruction'] != 'ret'
+    raise "Your last instruction should be `ret`!"
+  end
+
+solution: |
+  push 0x12345678
+  ret

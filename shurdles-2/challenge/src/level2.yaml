@@ -1,0 +1,42 @@
+---
+name: "Stringing along"
+
+text: |
+  Let's learn how to work with strings! Don't worry, this is related to the
+  `ret` nonsense we've been learning!
+
+  Can you return a pointer to the string, "BSides San Francisco", in the `rax`
+  register? Be sure to terminate with a NULL byte!
+
+  Hint: The `call` instruction pushes the next instruction onto the stack then
+  jumps; as a result, the most common way to get a pointer to a string in shellcode is to
+  use the `call` instruction to jump over it, then `pop` to get it back.
+
+  Probably easier as an example:
+
+  ```
+    call below               ; &lt;-- Call past the string
+    db "string goes here", 0 ; &lt;-- Null-terminated string
+    below:                   ; &lt;-- label
+    pop rdi                  ; &lt;-- pop the address of the string into rdi (or wherever you want it)
+  ```
+
+completion: "You've completed part 2! One more to go!"
+flag: 'CTF{returning_where_we_return}'
+password: "LearningToCallAndReturn"
+
+checker: |
+  if result['exit_code'].nil?
+    raise "Your code did not exit cleanly: #{ result['exit_reason'] }"
+  end
+
+  if result['history'][-1]['rax']['as_string'] != 'BSides San Francisco'
+    raise "The code did not return a pointer to the correct string!"
+  end
+
+solution: |
+  call below
+  db "BSides San Francisco",0
+  below:
+  pop rax
+  ret

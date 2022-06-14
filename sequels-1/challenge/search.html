@@ -1,0 +1,29 @@
+<html>
+  <title>JediSearch</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <p>
+    Name Search:
+    <form method='POST' action='/' class='form'>
+      <input name='q' placeholder='name' value='{{.Query}}' class='input'>
+      <input type='submit' value='Search' class='input'>
+    </form>
+  </p>
+  {{if .ErrorMsg}}
+  <p>
+  {{.ErrorMsg}}
+  </p>
+  {{end}}
+  {{if eq (len .Results) 0}}
+  <b>No results found!</b>
+  {{else}}
+  <b>{{len .Results}} results found.</b>
+  <table class="table">
+    <thead>
+      <tr><th>Name</th><th>Type</th><th>Planet</th></tr>
+    </thead>
+    {{range .Results}}
+      <tr><td>{{.Name}}</td><td>{{.Type}}</td><td>{{.Planet}}</td>
+    {{end}}
+  </table>
+  {{end}}
+</html>

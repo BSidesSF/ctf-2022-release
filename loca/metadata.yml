@@ -1,0 +1,44 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: loca
+author: ron
+flag: 'CTF{location_location_relocation}'
+description: |
+  Connect to the server, and answer the challenge with the correct response to win a flag!
+
+  In case it helps, the server is executes with:
+
+  ```
+  ncat.exe -l -e loca.exe -k -v -p 8881`
+  ```
+tags:
+  - RE
+  - Win
+port: 8881
+protocol: tcp
+notes: >
+  This requires a Windows host.
+  I've been running it with `ncat` and that works great:
+  `"c:\Program Files (x86)\Nmap\ncat.exe" -l -e loca.exe -k -v -p 8881`
+  It also requires flag.txt to be in the same directory
+
+  ## Infrastructure Set Up
+  ```
+  gcloud compute instances create bsidessf-ctf-2022-loca --project=bsides-sf-ctf-2022 --zone=us-west2-a --machine-type=e2-standard-2 --network-interface=address=34.102.74.19,network-tier=PREMIUM,private-network-ip=10.168.0.2,subnet=windows --maintenance-policy=MIGRATE --provisioning-model=STANDARD --no-service-account --no-scopes --create-disk=auto-delete=yes,boot=yes,device-name=bsidessf-ctf-2022-loca,image=projects/windows-cloud/global/images/windows-server-2019-dc-v20220513,mode=rw,size=50,type=projects/bsides-sf-ctf-2022/zones/us-west2-a/diskTypes/pd-ssd --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --reservation-affinity=any
+
+  gcloud compute --project=bsides-sf-ctf-2022 firewall-rules create local-rdp --direction=INGRESS --priority=1000 --network=windows --action=ALLOW --rules=tcp:3389 --source-ranges=68.83.91.156/32 --target-tags=loca
+
+  gcloud compute --project=bsides-sf-ctf-2022 firewall-rules create local-exe --direction=INGRESS --priority=1000 --network=windows --action=ALLOW --rules=tcp:8881 --source-ranges=68.83.91.156/32 --target-tags=loca
+
+  gcloud compute disks snapshot bsidessf-ctf-2022-loca --project=bsides-sf-ctf-2022 --snapshot-names=bsidessf-ctf-2022-loca-2022-05-31 --zone=us-west2-a --guest-flush --storage-location=us
+
+  ```
+managed: false

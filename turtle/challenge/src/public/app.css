@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+}
+
+#background {
+  background-color: #202020;
+  border: 2px black solid;
+  z-index: 0;
+}
+
+#foreground {
+  z-index: 1;
+}
+
+canvas {
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}

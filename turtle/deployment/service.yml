@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: turtle
+  name: turtle
+spec:
+  ports:
+  - port: 7999
+    protocol: TCP
+    targetPort: 7999
+  selector:
+    app: turtle
+  type: NodePort

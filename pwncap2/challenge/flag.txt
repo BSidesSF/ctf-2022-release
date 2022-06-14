@@ -1,0 +1,1 @@
+CTF{finding_offsets_can_be_hard_amirite}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>BSidesSF CTF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </head>
+  <body>
+    <div class="layout">
+      <nav class="header navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+        <div class="container-fluid">
+          <span class="navbar-brand">Web Tutorial 2</span>
+        </div>
+      </nav>
+      <main class="main">
+        <div class="container">
+          <div class="content">
+            <h3 class="h3-title">Can you steal the flag?</h3>
+            <img src="{{ url_for('static', filename='img/wave.jpg') }}" class="banner-img"/>
+            <button class="btn btn-secondary hint" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                Hint 1
+              </button>
+            <button class="btn btn-secondary hint" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                Hint 2
+              </button>
+            </p>
+            <div class="collapse" id="collapse1">
+              <div class="card card-body">
+               You'll need an XSS payload that will bypass the following CSP, 
+               <pre>
+                <code>
+                  script-src *; 
+                  default-src 'self'; 
+                  connect-src *; 
+                  style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com; 
+                  font-src 'self' fonts.gstatic.com fonts.googleapis.com
+                </code>
+              </pre>
+              </div>
+            </div>
+            <div class="collapse" id="collapse2">
+              <div class="card card-body">
+                Notice that script-src doesn't allow unsafe-inline, but allows you to source from any origin. 
+               <pre>
+                <code>
+                  script-src *; 
+                </code>
+              </pre>
+              </div>
+            </div>
+            <h5>Try to read /xss-two-flag as admin, all payloads submitted here will be sent to the admin.</h5>
+             <form action="/xss-two-result" method="post">
+                <div class="form-group">
+                <input class="form-control" type="text" name="payload" id="payload" placeholder="Enter your payload..."/>
+                </div>
+                <button type="submit" class="btn btn-secondary submit" value="submit">
+                  Submit
+                </button>
+              </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

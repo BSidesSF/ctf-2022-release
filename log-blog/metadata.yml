@@ -1,0 +1,23 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: Log-blog
+author: itsc0rg1
+flag: 'CTF{3mail5F0rExf1l}'
+description:
+  Can you steal the flag from the blog admin?
+tags:
+  - Web
+port: 8000
+protocol: http # accepted: http, https, tcp, udp
+webbot:
+  port: 3000
+  cookies:
+    - "admin=bf2b084a16d854065952ee3edba3e5e22391e0088cea348783b5f4f5208c35ec;URL=https://%(hostname)s/;httpOnly"

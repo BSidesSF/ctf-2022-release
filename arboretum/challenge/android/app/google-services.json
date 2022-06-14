@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446909129439",
+    "project_id": "bsidessf2022-arboretum-backend",
+    "storage_bucket": "bsidessf2022-arboretum-backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446909129439:android:b91161eeeefe75603e7f6a",
+        "android_client_info": {
+          "package_name": "com.bsidessf.arboretum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446909129439-2k8n7ggv6er1jrcv994fgli835iqh7nc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzJByNMwCrFIOWzGpiFasuYWNV5rZdRK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446909129439-2k8n7ggv6er1jrcv994fgli835iqh7nc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

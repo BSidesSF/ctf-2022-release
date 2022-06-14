@@ -1,0 +1,26 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: refreshing
+author: ron
+flag: 'CTF{press_f5_to_continue}'
+description: |
+  We've installed an UltraWAF™ to protect our PHP site! We're so confident that we've included the configuration!
+
+  *Note that this is http, not https!*
+tags:
+  - Web
+port: 80
+protocol: http
+flag_path: /flag.txt
+use_http_loadbalancer: false
+notes: This is a pair of containers that need to connect to each other - `waf` needs to face the Internet and `app` is the backend that `waf` connects to and CANNOT face the Internet! docker-compose.yml does everything.
+
+managed: false

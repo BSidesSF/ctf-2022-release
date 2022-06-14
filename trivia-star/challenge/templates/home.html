@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title> Trivia Star </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body class="home-body">
+    <h1>Trivia Star</h1>
+    <p class="lead">Answer trivia questions to get stars, collect all 50 to earn the flag.</p>
+    <div class="main">
+       {% if msg == "correct" %}
+        <div class="box">
+          <div class="alert alert-success">
+            <strong>Right answer, next question!</strong>
+        </div>
+        {% endif %}
+        {% if msg == "incorrect" %}
+        <div class="box">
+          <div class="alert alert-danger">
+            <strong>Wrong answer, try again!</strong>
+        </div>
+        {% endif %}
+      <div class="card bg-light mb-3" style="max-width: 20rem;">
+      <div class="card-header">Trivia Question</div>
+        <div class="card-body">
+          <h4 class="card-title">Question #{{ question.id + 1 }}</h4>
+          <p class="card-text">{{ question.value }}</p>
+          <fieldset class="form-group">
+            <legend class="mt-4">Answers</legend>
+            <form action="/check-answer" method="GET">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="answer" id="answer1" value="{{ answer[0] }}" checked="">
+                {{ answer [0] }}
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="answer" id="answer2" value="{{ answer[1] }}">
+                {{ answer [1]}}
+              </label>
+            </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="answer" id="answer3" value="{{ answer[2] }}">
+              {{ answer[2] }}
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="answer" id="answer4" value="{{ answer[3] }}">
+              {{ answer[3] }}
+            </label>
+          </div>
+    </fieldset>
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </form>
+        </div>
+      </div>   
+    </div>
+    <div class="star">
+      <h4>Your star progress:</h4>
+    <div class="progress-container">
+      <span class="progress-label" data-value="{{ star }}" style="width:{{ star * 2 }}%">{{ star }}</span>
+      <progress class="progress-bar" id="stars" max="50" value="{{ star }}"> {{ star }} </progress>
+      <div>
+      </div>
+    </div>
+    <form action="/flag" method="GET">
+      <button type="submit" class="btn btn-primary btn-lg">Get Flag!</button>
+    </form>
+  </div>
+  </body>
+</html>

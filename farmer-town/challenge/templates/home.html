@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title> Farmer Town </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body class="home-body">
+    <div class="farm-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Farmer Land</h1>
+      <p class="lead">Welcome to farmer land, {{ user.username }}!</p>
+      <div class="alert alert-info">
+        <p class="lead">Each time you water your plant it will move to the next stage of germination </p>
+        <p>Take your plant to the third stage and get the flag! Currently in <b>Stage {{ plant.stage + 1 }}.</b></p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Farm</h4>
+          </div>
+          <div class="card-body">
+            {% if plant.stage == 1 %}
+              <img class="card-img" src="{{ url_for('static', filename='images/1.png') }}"/>
+            {% elif plant.stage == 2 %}
+              <img class="card-img" src="{{ url_for('static', filename='images/2.png') }}"/>
+            {% else %}
+              <img class="card-img" src="{{ url_for('static', filename='images/0.png') }}"/>
+            {% endif %}
+            <form action="/water" method="get">
+              <button type="submit" class="btn btn-lg btn-block btn-primary" formaction="/flag">Get Flag!</button>
+            </form>
+          </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Can</h4>
+          </div>
+          <div class="card-body">
+             <div class="img-container">
+              <center>
+                {% if can.broken == False %}
+                  <img class="card-img" src="{{ url_for('static', filename='images/can-new.png') }}"/>
+                {% elif can.broken == True %}
+                  <img class="card-img" src="{{ url_for('static', filename='images/can-broken.png') }}"/>
+                {% else %}
+                <img class="card-img" src="{{ url_for('static', filename='images/can-no.png') }}"/>
+                {% endif %}
+              </center>
+              </div>
+            <form action="/water" method="get">
+              <button type="submit" class="btn btn-lg btn-block btn-primary">Water farm</button>
+            </form>
+          </div>
+        </div>
+        </div>
+         <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Farm</h4>
+          </div>
+          <div class="card-body">
+            <div>
+              <h2>Store</h2>
+              <h4 class="card-title pricing-card-title">Wallet: {{ money }}g</h4>
+              <div>
+              {% if can %}
+              <h4> Items to sell </h4>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Sell?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td> Can </td>
+                      <td>{{ can.value }}</td>
+                      <td><a href="/sell?id={{can.id}}&wallet_id={{user.uuid}}">Sell</a></td>
+                  </tr>
+                </tbody>
+              </table>
+              {% endif %}
+            </div>
+              <div>
+                <h4> Items for sale </h4>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Item</th>
+                      <th scope="col">Value</th>
+                      <th scope="col">Buy?</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for key, value in store.items() %}
+                    <tr>
+                      <td>{{ key }}</td>
+                      <td>{{ value }}</td>
+                      <td><a href="/buy?id={{ key }}">Buy</a></td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

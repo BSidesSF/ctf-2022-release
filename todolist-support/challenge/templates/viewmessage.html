@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}View Message{% endblock %}
+{% block content %}
+<div class='columns'>
+    <div class='column is-half is-offset-one-quarter'>
+        <article class="message">
+            <div class="message-body">
+                <p><b>Message:</b><br/>{{message}}</p><p></p>
+                <p><b>From:</b>{{from}} ({{remote_addr}})</p>
+                <p><b>User-Agent:</b> {{user_agent|safe}}</p>
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}

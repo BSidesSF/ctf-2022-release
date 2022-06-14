@@ -1,0 +1,41 @@
+---
+name: "Returning without a ret"
+
+text: |
+  Can you return 2, but without using a `ret` this time? There are a bunch of
+  ways to solve this one!
+
+  Hint: One solution is to use a `syscall` called `sys_exit` - we'll learn more
+  about syscalls later!
+
+  Basically, check out
+  [this table](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/),
+  find the `sys_exit` syscall, set up the parameters, and run `syscall`! Like
+  this:
+
+  ```
+  mov rax, &lt;syscall_number&gt;
+  mov rdi, &lt;first_argument&gt;
+  mov rsi, &lt;second_argument&gt;
+  mov rdx, &lt;third_argument&gt;
+  [...]
+  syscall
+  ```
+
+completion: "Great work! We have one more challenge this level, then you'll get the first flag"
+flag: null
+password: "HereWeAreLevel3"
+
+checker: |
+  if result['history'][-1]['rip']['as_instruction'] =~ /ret/i
+    raise "Uh oh! Looks like you used `ret` at the end!"
+  end
+
+  if result['exit_code'] != 2
+    raise "Your code did not return 2: #{ result['exit_code'] }"
+  end
+
+solution: |
+  mov rax, 60
+  mov rdi, 2
+  syscall

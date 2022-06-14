@@ -1,0 +1,1 @@
+CTF{thanks_for_logging_in_to_our_logs_login_shell}

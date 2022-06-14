@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rpcordle
+  name: rpcordle
+spec:
+  loadBalancerIP: 35.230.115.207
+  ports:
+  - port: 5555
+    protocol: TCP
+    targetPort: 5555
+  selector:
+    app: rpcordle
+  type: LoadBalancer

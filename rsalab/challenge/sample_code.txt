@@ -1,0 +1,207 @@
+There are two different tools I suggest you use to solve these
+challenges. Either will work so pick one you think will work well for
+you.
+
+The first is the "gp" calculator part of the "GP/PARI" package. It's a
+fantastic calculator, great for doing lots of sophisticated
+mathematics, especially number theory.  On Ubuntu install the
+"pari-gp" package to get it.
+
+The second is Python with the "sympy" library for doing symbolic
+algebra. If you're already comfortable with Python is is probably the
+best choice. On Ubuntu install the "python3-sympy" package to get it.
+
+This whole RSA lab is written in Go so that's also a pretty reasonable
+option too. Use the "math/big" and "crypto/rand libraries. The only
+thing I had to make myself in Go was a function for Chinese Remainder
+Theorem. It wasn't bad at all. I'm sure you could make Java or Perl or
+whatever else work too but you'll probably spend a lot more time
+trying to get big number libraries and number theory algorithms
+working in them.
+
+
+For these challenges you will need to be able to do a few different
+things. I will list there here with examples in GP/PARI and Python.
+
+
+== GP ==
+
+You can invoke GP from a terminal with 'gp'. The only thing I customize is my prompt:
+
+$ cat .gprc
+prompt = "GP/PARI> "
+
+
+== Python ==
+
+For python you'll want to import sympy or one of the more specific libraries provided by sympy:
+
+$ python
+Python 3.9.12 (main, May 23 2022, 03:57:57)
+[GCC 11.2.1 20220115] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sympy
+
+
+== Modular Inverse ==
+
+GP:
+
+GP/PARI> lift(Mod(1/3, 7))
+5
+
+Note here that lift() only gets rid of the modulus bit. It "lifts" the
+number out of the field.
+
+Python:
+
+>>> pow(3, -1, 7)
+5
+
+Note here that the exponent -1 is only supported on Python 3.8 and later.
+
+
+== Modular Exponentiation ==
+
+GP:
+
+GP/PARI> modexp(a, b, n) = { \
+    my(d, bin); \
+    d = Mod(1, n); \
+    bin = binary(b); \
+    for (i = 1, length(bin), \
+         d = sqr(d); \
+         if (bin[i] == 1, \
+             d = d*a; \
+         ); \
+    ); \
+    return(d);
+}
+
+GP/PARI> lift(modexp(3, 101, 17))
+5
+
+
+Note here that I have defined the modexp() function because the
+in-built ^ operator is slow an inefficient on Mod() objects.
+
+
+Python:
+
+>>> pow(3, 101,17)
+5
+
+
+== Prime Generation ==
+
+Generate a prime between 2^8 and 2^9
+
+GP:
+
+GP/PARI> randomprime([2^8, 2^9])
+443
+
+
+Python:
+
+>>> import sympy
+>>> sympy.randprime(pow(2, 8), pow(2, 9))
+421
+
+
+== Factoring ==
+
+GP:
+
+GP/PARI> factor(2^202 - 1)
+
+[                             3 1]
+
+[                 7432339208719 1]
+
+[            341117531003194129 1]
+
+[845100400152152934331135470251 1]
+
+
+Python:
+
+>>> import sympy
+>>> sympy.ntheory.factorint(pow(2, 202) - 1)
+{3: 1, 341117531003194129: 1, 7432339208719: 1, 845100400152152934331135470251: 1}
+
+
+Note that the integer factoring algorithm(s) used by sympy are far
+slower/less sophisticated than GP/PARI. Python will work for these
+challenges because the composites you need to factor have been chosen
+such that factoring with Python is still reasonable.
+
+
+== Integer Nth Roots ==
+
+5th root of 64^20
+
+GP:
+
+GP/PARI> sqrtnint(64^20, 5)
+16777216
+
+
+Python:
+
+>>> import sympy
+>>> sympy.integer_nthroot(pow(64, 20), 5)
+(16777216, True)
+
+
+Note that "True" here tells you the root is perfect.
+
+
+== Checking For Perfect Squares ==
+
+GP:
+
+GP/PARI> issquare(24)
+0
+GP/PARI> issquare(25)
+1
+
+
+Python:
+
+>>> import sympy
+>>> sympy.ntheory.primetest.is_square(24)
+False
+>>> sympy.ntheory.primetest.is_square(25)
+True
+
+
+== Greatest Common Divisor (GCD) ==
+
+GP:
+
+GP/PARI> gcd(720, 420)
+60
+
+
+Python:
+
+>>> import math
+>>> math.gcd(720, 420)
+60
+
+
+
+== Chinese Remainder Theorem (CRT) ==
+
+GP:
+
+GP/PARI> chinese(Mod(1, 2), chinese(Mod(2, 3), Mod(4, 5)))
+Mod(29, 30)
+
+
+Python:
+
+>>> sympy.ntheory.modular.crt([2, 3, 5], [1, 2, 4])
+(mpz(29), 30)
+

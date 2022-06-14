@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Monstera</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Monstera</string>
+    <string name="second_fragment_label">Sunlight</string>
+    <string name="third_fragment_label">Water</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="home">Home</string>
+    <string name="part1">Q1RGe1JldjNyczM=</string>
+    <!-- Strings for the fragments -->
+    <string name="first_text">Monstera is a tropical plant.</string>
+    <string name="second_text">Monstera needs medium indirect light.</string>
+    <string name="third_text">Monstera needs to be watered every 1-2 weeks.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

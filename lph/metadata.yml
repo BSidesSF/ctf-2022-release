@@ -1,0 +1,8 @@
+version: beta1
+name: lph
+author: symmetric
+flag: 'CTF{AROUNDWEGO}'
+description: Help, I'm locked out but I have a recording from the lph!
+tags:
+  - Forensics
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{title}}{% endblock %} - TODO List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+    <script src="/static/todos.js"></script>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a href='/' class="navbar-item">TODO List</a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                {% if g.user %}
+                    <a class="navbar-item" href='/todos'>TODOs</a>
+                    <a class="navbar-item" href='/logout'>Logout</a>
+                {% else %}
+                    <a class="navbar-item" href='/register'>Register</a>
+                    <a class="navbar-item" href='/login'>Login</a>
+                {% endif %}
+                <a class="navbar-item" href='{{config['SUPPORT_URL']}}'>Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">{{ self.title() }}</h1>
+            {% if error %}
+            <div class="notification is-danger is-light">
+                {{error}}
+            </div>
+            {% endif %}
+        {% block content %}{% endblock %}
+        </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+CTF{<combo_in_uppercase>}

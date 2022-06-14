@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  waf:
+    image: httpd:latest
+    container_name: waf
+    ports:
+      - 9876:80
+    volumes:
+      - $PWD/waf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    restart: unless-stopped
+
+  app:
+    image: php:7.2-apache
+    container_name: app
+    restart: unless-stopped
+
+    volumes:
+      - $PWD/app:/var/www/html
+      - $PWD/flag.txt:/flag.txt

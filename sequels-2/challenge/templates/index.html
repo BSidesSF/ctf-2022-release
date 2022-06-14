@@ -1,0 +1,13 @@
+{{define "title"}}EXIF Examiner{{end}}
+{{define "content"}}
+<form method='POST' action='/' enctype='multipart/form-data'>
+  Upload Image:
+  <input type='file' name='fileupload'>
+  <input type='submit' value='Upload'>
+</form>
+<p>
+  <b>Note that images (and EXIF Metadata) are cached in our MySQL Database for
+    a short time upon upload.  You can send your EXIF metadata link to a friend!
+  </b>
+</p>
+{{end}}

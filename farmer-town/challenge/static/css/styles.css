@@ -1,0 +1,156 @@
+html,
+body {
+  height: 100%;
+}
+
+.home-body {
+	background-color: #ecf0f1;
+}
+
+.farm-header {
+    max-width: 700px;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.card-deck {
+    min-width: 500px;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row wrap;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.card{
+	 display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 0 0%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.card-body{
+	display: block;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.card-img{
+	width: 120px;
+}
+
+.card-header{
+	background-color: #c2c7c5;
+}
+
+.img-container{
+	height: 210px;
+}
+
+.btn-block{
+	display: block;
+	margin-top: 10px;
+	padding: 10px;
+	width: 100%;
+}
+
+thead{
+	background-color: #c2c7c5;
+}
+
+.error-img{
+	width: 300px;
+}
+
+.alert-info{
+	background-color: #c2c7c5;
+	color: black;
+}
+
+.form-body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ecf0f1;
+}
+
+.box {
+	margin:0 auto; 
+	padding:50px;
+	background:#e7e7e7;
+	border:2px solid #d1d1d1;
+}
+
+.register-link{
+	display: block;
+	padding: 1em;
+}
+
+
+ .form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin-password input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-end{
+	margin-bottom: 10px;
+}
+
+.error {
+	color: red;
+	list-style-type: none; /* Remove bullets */
+}
+
+.message {
+	color: green;
+	list-style-type: none; /* Remove bullets */
+}

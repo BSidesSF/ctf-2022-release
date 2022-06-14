@@ -1,0 +1,8 @@
+version: beta1
+name: codetalker
+author: symmetric
+flag: 'CTF{layers_of_meaning}'
+description: .seirrow ruoy fo tsael eht si esreveR
+tags:
+  - Forensics
+

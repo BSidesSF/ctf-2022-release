@@ -1,0 +1,24 @@
+# This is the standard metadata for a challenge with a web component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: not-for-taking
+author: ron
+flag: 'CTF{dont-right-click}'
+description: We think there's something weird about the image on this page. Can you download it and look for a secret message?
+tags:
+  - "101"
+  - "Web"
+port: 80
+protocol: http
+
+# Don't lint the dockerfile, since it's mostly using the upstream one
+lint_dockerfile: false
+security:
+  allow_run_as_root: true

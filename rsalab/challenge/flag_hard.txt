@@ -1,0 +1,2 @@
+CTF{rekt_security_algorithm!}
+

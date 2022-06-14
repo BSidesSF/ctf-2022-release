@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title> Log Blog </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+
+<body>
+    
+<div class="container">
+
+
+<main class="container">
+  <div class="p-4 p-md-5 mb-4 rounded bg-dark banner">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Welcome to the log blog</h1>
+      <p class="lead my-3">We love logs! </p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="card-body row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Natural</strong>
+          <h3 class="mb-0">Is this the log for you?</h3>
+          <div class="mb-1 text-muted">May 13</div>
+          <p class="card-text mb-auto">Natural hardwood fire logs produce high heat and are great for fire pits.</p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="card-img" src="{{ url_for('static', filename='images/log1.jpg') }}"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Artificial</strong>
+          <h3 class="mb-0">Is this the log for you?</h3>
+          <div class="mb-1 text-muted">May 13</div>
+          <p class="mb-auto">Artificial logs are similar to candles, they are made from sawdust, cellulose and wax.</p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+           <img class="card-img" src="{{ url_for('static', filename='images/log2.jpg') }}"/>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-8">
+
+      <article class="blog-post">
+        <h2 class="blog-post-title">Firewood</h2>
+        <p class="blog-post-meta">May 13, 2022 by <b>Corgi</b></p>
+
+        <p></p>
+        <hr>
+        <p>We are here to help, are you looking for recommendations for firewood? Read on and pick one from our list!</p>
+        <h2>Recommendations</h2>
+        <p>It's important to choose the right firewood for your needs.</p>
+        <p>We recommend, </p>
+        <ul>
+          <li>Ash</li>
+          <li>Oak</li>
+          <li>Maple</li>
+        </ul>
+        <p>We don't recommend,</p>
+        <ul>
+          <li>Pine</li>
+          <li>Eucalyptus</li>
+          <li>Cedar</li>
+        </ul>
+        <p>Signs that your firewood has gone bad:</p>
+        <ul>
+          <li>Splitting ends on the logs</li>
+           <li>Log sounds hollow</li>
+          <li>Bark is peeling off</li>
+          <li>Has a wet smell</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">About</h4>
+          <p class="mb-0">We love sharing out curated list of logs!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <h1> Contact us </h1>
+    <p> Got a question? We'd love to help. </p>
+    <form action="/send-message" method="post">
+      <div class="form-group">
+        <label for="email">Your email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email"/>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" name="message" placeholder="Enter message" row="3"></textarea>
+      </div>
+        <button type="submit" class="btn btn-primary"> Send </button>
+        <input type="submit" class="btn btn-primary" value="Send Copy" formaction="/send-copy">
+      </div>
+    </form>
+  </div>
+
+</div>
+
+</main>
+
+<footer class="blog-footer">
+  <p class="footer-text">Blog by Corgi.</p>
+  <p class="footer-text">May 2022.</p>
+</footer>
+</body>
+</html>

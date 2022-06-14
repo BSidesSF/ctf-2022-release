@@ -1,0 +1,60 @@
+---
+name: "Letters home"
+
+text: |
+  Let's practice what we just learned about strings and syscalls by writing
+  something to standard out (aka, the console!)
+
+  Can you write "Hello, BSides!" to stdout, then exit cleanly?
+
+  Hint: Use the `sys_write` syscall with the `fd` set to 1 (which means stdout),
+  and the other parameters set appropriately.
+
+  [Syscall table for reference](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+
+completion: "Hello to you, player!"
+flag: null
+password: "HelloPlayer"
+
+checker: |
+  if result['exit_code'].nil?
+    raise "Your code did not exit cleanly: #{ result['exit_reason'] }"
+  end
+
+  syscall = result['history'].find { |h| h['rip']['as_instruction'] == 'syscall' }
+  if syscall.nil?
+    raise "We didn't see a syscall performed!"
+  end
+
+  if syscall['rax']['value'] != 1
+    raise "The first syscall was not sys_write!"
+  end
+
+  if syscall['rdi']['value'] != 1
+    raise "The first syscall did not write to stdout (fd = 1)"
+  end
+
+  if syscall['rsi']['as_string'].nil? || !syscall['rsi']['as_string'].include?('Hello, BSides!')
+    raise "The first syscall did not correctly set rsi"
+  end
+
+  if syscall['rdx']['value'] < 14
+    raise "The first syscall had a length that's too short!"
+  end
+
+  puts result['stdout']
+  if result['stdout'].nil? || !result['stdout'].include?('Hello, BSides!')
+    raise "The correct string was not printed to stdout!"
+  end
+
+solution: |
+  call below
+  db "Hello, BSides!",0
+  below:
+  pop rsi
+  mov rax, 1
+  mov rdi, 1
+  mov rdx, 14
+  syscall
+  xor rax, rax
+  ret

@@ -1,0 +1,27 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: Knock Knock
+author: Matir
+flag: '0*6*0*6*0*6*'
+description: |
+  We've bought this door lock controller.  The PIN is stored in a flash chip,
+  but we're concerned the vendor may have built-in a backdoor too!  Can you
+  find the key sequence for the backdoor?
+
+  We've convinced the vendor to share a schematic and the firmware ELF, but
+  they claim the source is "proprietary intellectual property".
+
+  Note that this challenge does *not* conform to the standard flag format.
+  The correct entry is 12 characters long (i.e., the shortest functional unlock
+  code).
+tags:
+  - RE
+notes: Private notes on deployment, setup, etc.

@@ -1,0 +1,7 @@
+FROM httpd:2.4.53
+
+RUN apt update && apt install -y apache2-dev
+RUN mkdir /src
+WORKDIR /src
+
+CMD ["make", "indocker"]

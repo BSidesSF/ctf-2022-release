@@ -1,0 +1,20 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: Arboretum
+author: itsc0rg1
+flag: 'CTF{L3afM3Al0n3}'
+description:
+  Sign up and claim you Tree NFTs, free trees for everyone!
+tags:
+  - Mobile
+port: 8000
+protocol: http # accepted: http, https, tcp, udp
+flag_path: gs://bsidessf-arboretum-images/flag.png

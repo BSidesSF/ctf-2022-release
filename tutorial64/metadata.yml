@@ -1,0 +1,30 @@
+# This is the standard metadata for a challenge with a server-side component.
+# In terms of file structure, please also have the following:
+#
+# - A challenge/ folder with everything needed to create the challenge assets
+# - A distfiles/ folder which contains all files (or symlinks to files) that
+#   will be attached to the challenge
+# - A solution/ folder with a working solution to the challenge (or a README.md
+#   file documenting the solution)
+
+version: beta1
+name: Tutorial64
+author: Matir
+flag: 'CTF{long_mode_is_long}'
+description: |
+  If you're new to pwnables, then this challenge is for you.  If you're not new,
+  then this challenge is just points for you.
+
+  Now with more bits!
+
+  This challenge sponsored by the Google Security Team.  Come see our BSidesSF
+  booth if you're interested in joining us!
+value: 10
+min_value: 10
+tags:
+  - Pwn
+  - "101"
+port: 6464
+protocol: tcp # accepted: http, https, tcp, udp
+flag_path: /home/ctf/flag.txt # Optional; but helpful for players
+notes: Private notes on deployment, setup, etc.
